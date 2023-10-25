@@ -7,10 +7,11 @@ import '../styles/Layout.css'
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [cart, updateCart] = useState([]);
+  const savedCart = localStorage.getItem("cart")
+  const [cart, updateCart] = useState(savedCart ? JSON.parse(savedCart) : []);
 
   useEffect(() => {
-    localStorage.setItem(JSON.stringify(cart))}
+    localStorage.setItem("cart", JSON.stringify(cart))}
     , [cart])
 
   return (
