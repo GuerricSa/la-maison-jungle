@@ -1,3 +1,9 @@
+const quantityLabel = {
+  1: 'peu',
+  2: 'modérément',
+  3: 'beaucoup'
+}
+
 function CareScale({ scaleValue, careType }) {
 	const range = [1, 2, 3]
 
@@ -10,24 +16,10 @@ function CareScale({ scaleValue, careType }) {
   }
 
   function handleClick(scaleValue, careType) {
-    let quantity;
-    switch (scaleValue) {
-        case 1:
-          quantity = 'peu';
-          break;
-        case 2:
-          quantity = 'modérement';
-          break;
-        case 3:
-          quantity = 'beaucoup';
-          break;
-          default:
-            quantity = 'valeur inconnue';
-      }
     if(careType === 'light') {
-      alert(`Cette plante requiert ${quantity} de lumière`)
+      alert(`Cette plante requiert ${quantityLabel[scaleValue]} de lumière`)
     } else {
-      alert(`Cette plante requiert ${quantity} d'arrosage`)
+      alert(`Cette plante requiert ${quantityLabel[scaleValue]} d'arrosage`)
     }
   }
 
